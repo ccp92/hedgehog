@@ -1,7 +1,16 @@
-import React from 'react';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap-theme.css";
+import "./style.css";
+import { PageHeader } from "react-bootstrap";
 
 export default class PageBody extends React.Component {
   render() {
-    return <div>Hello World!</div>
+    return (
+      <div>
+        <PageHeader className="center">All the Dogs!</PageHeader>
+        <p>What type of dog do you want to see!?</p>
+      </div>
+    );
   }
 }
