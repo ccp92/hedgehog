@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
 import { Button, FormControl } from "react-bootstrap";
-
+import "./style.css";
 export default class DogSelector extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +37,7 @@ export default class DogSelector extends React.Component {
   renderImage() {
     if (this.state.image.status === "success") {
       let imageLink = this.state.image.message;
-      return <img src={imageLink} />;
+      return <img className="size-control" src={imageLink} />;
     } else {
       return null;
     }
@@ -45,8 +45,8 @@ export default class DogSelector extends React.Component {
 
   render() {
     return (
-      <div>
-        <h5>Dog Breeds:</h5>
+      <div className="center">
+        <h4>Dog Breeds:</h4>
         <FormControl
           inputRef={ref => {
             this.myInput = ref;
@@ -56,14 +56,16 @@ export default class DogSelector extends React.Component {
         >
           {this.renderDropdownItems()}
         </FormControl>
-        <Button
-          onClick={() => {
-            this.grabAPic();
-          }}
-          type="submit"
-        >
-          View
-        </Button>
+        <div className="pt pb">
+          <Button
+            onClick={() => {
+              this.grabAPic();
+            }}
+            type="submit"
+          >
+            Random doggo
+          </Button>
+        </div>
         <div>{this.renderImage()}</div>
       </div>
     );

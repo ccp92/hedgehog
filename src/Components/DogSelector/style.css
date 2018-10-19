@@ -1,0 +1,18 @@
+.center {
+  align-content: center
+}
+
+.pt {
+  padding-top: 1em;
+}
+
+.pb {
+  padding-bottom: 1em;
+}
+
+.size-control {
+  max-height:500px;
+  max-width:500px;
+  height:auto;
+  width:auto;
+}
