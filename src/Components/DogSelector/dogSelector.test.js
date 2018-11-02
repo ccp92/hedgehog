@@ -1,7 +1,9 @@
 import DogSelector from ".";
 
 describe("DogSelector", () => {
-  it('ComponentDidMount', () => {
+  describe("Example 1", () => {
+    it('ComponentDidMount', () => {
 
+    })
   })
 })

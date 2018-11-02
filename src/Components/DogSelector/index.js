@@ -37,7 +37,7 @@ export default class DogSelector extends React.Component {
   renderImage() {
     if (this.state.image.status === "success") {
       let imageLink = this.state.image.message;
-      return <img className="size-control" src={imageLink} />;
+      return <img className="size-control" src={imageLink} alt="A picture of a dog"/>;
     } else {
       return null;
     }
@@ -75,7 +75,7 @@ export default class DogSelector extends React.Component {
     let selectedBreed = this.myInput.value;
     let lowerCase = selectedBreed.toLowerCase();
     fetch(`https://dog.ceo/api/breed/${lowerCase}/images/random`)
-      .then(boop => boop.json())
+      .then(response => response.json())
       .then(image => this.setState({ image }));
   }
 

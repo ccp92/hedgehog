@@ -1,15 +1,21 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/css/bootstrap-theme.css";
 import "./style.css";
 import DogSelector from "../DogSelector";
-import { PageHeader } from "react-bootstrap";
+import HelloMessage from "../HelloMessage";
+import Favorites from "../Favorites";
 
 export default class PageBody extends React.Component {
   render() {
+    const welcome = "Welcome! Here are all the dogs!"
+    let likeDogs = null;
     return (
       <div>
-        <PageHeader className="center">All the Dogs!</PageHeader>
+        <HelloMessage welcome={welcome} likeDogs={likeDogs} />
+        <Favorites header="My favorite Dogs!">
+          <p>Akita</p>
+          <p>Husky</p>
+          <p>Pug</p>
+        </Favorites>
         <p>What type of dog do you want to see!?</p>
         <DogSelector />
       </div>
