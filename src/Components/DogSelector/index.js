@@ -3,11 +3,13 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
 import { Button, FormControl } from "react-bootstrap";
 import "./style.css";
+import DogBreeds from "../../Usecase/GetDogBreeds/index";
 export default class DogSelector extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      loading: true,
       data: {
         status: null,
         message: null
@@ -21,7 +23,11 @@ export default class DogSelector extends React.Component {
 
   renderItem(dogBreeds) {
     let capitalised = dogBreeds.charAt(0).toUpperCase() + dogBreeds.slice(1);
-    return <option key={dogBreeds}>{capitalised}</option>;
+    return (
+      <option data-test="dog-breeds" key={dogBreeds}>
+        {capitalised}
+      </option>
+    );
   }
 
   renderDropdownItems() {
@@ -37,16 +43,30 @@ export default class DogSelector extends React.Component {
   renderImage() {
     if (this.state.image.status === "success") {
       let imageLink = this.state.image.message;
-      return <img className="size-control" src={imageLink} alt="A picture of a dog"/>;
+      return <img className="size-control" src={imageLink} alt="A dog" />;
     } else {
       return null;
     }
   }
 
   render() {
+    if (this.state.loading === true) {
+      return (
+        <div>
+          <p>Loading:</p>
+          <FormControl
+            inputRef={ref => {
+              this.myInput = ref;
+            }}
+            componentClass="select"
+            id="dog-breeds"
+          />
+        </div>
+      );
+    }
     return (
       <div className="center">
-        <h4>Dog Breeds:</h4>
+        <h4 data-test="bob">Dog Breeds:</h4>
         <FormControl
           inputRef={ref => {
             this.myInput = ref;
@@ -79,9 +99,10 @@ export default class DogSelector extends React.Component {
       .then(image => this.setState({ image }));
   }
 
-  componentDidMount() {
-    fetch("https://dog.ceo/api/breeds/list/all")
-      .then(response => response.json())
-      .then(data => this.setState({ data }));
+  async componentDidMount() {
+    let list = await new DogBreeds();
+    let result = await list.execute();
+
+    this.setState({ data: result, loading: false });
   }
 }

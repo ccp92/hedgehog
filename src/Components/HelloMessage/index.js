@@ -4,10 +4,6 @@ import "bootstrap/dist/css/bootstrap-theme.css";
 import { PageHeader } from "react-bootstrap";
 
 export default class HelloMessage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   renderSubHeading() {
     if (this.props.likeDogs === true) {
       return <h4>The bestest dogs</h4>;
