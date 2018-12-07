@@ -1,4 +1,4 @@
-export default class DogBreeds {
+export default class GetDogBreeds {
   async execute() {
     let rawResponse = await fetch("https://dog.ceo/api/breeds/list/all")
     let response = await rawResponse.json();

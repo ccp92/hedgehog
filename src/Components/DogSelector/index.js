@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
 import { Button, FormControl } from "react-bootstrap";
 import "./style.css";
-import DogBreeds from "../../Usecase/GetDogBreeds/index";
 export default class DogSelector extends React.Component {
   constructor(props) {
     super(props);
@@ -100,7 +99,7 @@ export default class DogSelector extends React.Component {
   }
 
   async componentDidMount() {
-    let list = await new DogBreeds();
+    let list = this.props.getDogBreeds;
     let result = await list.execute();
 
     this.setState({ data: result, loading: false });
