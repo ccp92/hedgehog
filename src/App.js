@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Grid, Row, Col } from "react-bootstrap";
 
 import GetDogBreeds from "./Usecase/GetDogBreeds";
+import GetDogPic from "./Usecase/GetDogPic";
+
 import DogSelector from "./Components/DogSelector";
 import HelloMessage from "./Components/HelloMessage";
 import Favorites from "./Components/Favorites";
@@ -10,6 +12,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
 
 const getDogBreeds = new GetDogBreeds();
+const getDogPic = new GetDogPic();
 class App extends Component {
   render() {
     const welcome = "Welcome! Here are all the dogs!";
@@ -27,7 +30,7 @@ class App extends Component {
                 <p>Pug</p>
               </Favorites>
               <p>What type of dog do you want to see!?</p>
-              <DogSelector getDogBreeds={getDogBreeds} />
+              <DogSelector getDogBreeds={getDogBreeds} getDogPic={getDogPic}/>
             </div>
           </Col>
           <Col md={2} />

@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
-import { Button, FormControl } from "react-bootstrap";
+import { Form, Button, FormControl } from "react-bootstrap";
 import "./style.css";
 export default class DogSelector extends React.Component {
   constructor(props) {
@@ -42,7 +42,14 @@ export default class DogSelector extends React.Component {
   renderImage() {
     if (this.state.image.status === "success") {
       let imageLink = this.state.image.message;
-      return <img className="size-control" src={imageLink} alt="A dog" />;
+      return (
+        <img
+          className="size-control"
+          data-test="dog-picture"
+          src={imageLink}
+          alt="A dog"
+        />
+      );
     } else {
       return null;
     }
@@ -66,36 +73,40 @@ export default class DogSelector extends React.Component {
     return (
       <div className="center">
         <h4 data-test="bob">Dog Breeds:</h4>
-        <FormControl
-          inputRef={ref => {
-            this.myInput = ref;
-          }}
-          componentClass="select"
-          id="dog-breeds"
-        >
-          {this.renderDropdownItems()}
-        </FormControl>
-        <div className="pt pb">
-          <Button
-            onClick={() => {
-              this.grabAPic();
+        <Form
+        onSubmit = {this.grabAPic}
+        data-test="pic-form">
+          <FormControl
+            inputRef={ref => {
+              this.myInput = ref;
             }}
-            type="submit"
+            componentClass="select"
+            id="dog-breeds"
           >
-            Random doggo
-          </Button>
-        </div>
+            {this.renderDropdownItems()}
+          </FormControl>
+          <div className="pt pb">
+            <Button
+              type="submit"
+            >
+              Random doggo
+            </Button>
+          </div>
+        </Form>
         <div>{this.renderImage()}</div>
       </div>
     );
   }
 
-  grabAPic() {
+  grabAPic = async (e) => {
+    e.preventDefault();
     let selectedBreed = this.myInput.value;
     let lowerCase = selectedBreed.toLowerCase();
-    fetch(`https://dog.ceo/api/breed/${lowerCase}/images/random`)
-      .then(response => response.json())
-      .then(image => this.setState({ image }));
+
+    let imageRequest = this.props.getDogPic;
+    let result = await imageRequest.execute(lowerCase);
+
+    this.setState({ image: result, loading: false });
   }
 
   async componentDidMount() {
