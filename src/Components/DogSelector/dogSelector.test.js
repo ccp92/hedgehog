@@ -1,5 +1,5 @@
 import DogSelector from ".";
-import { mount, shallow } from "enzyme";
+import { mount } from "enzyme";
 import React from "react";
 
 describe("DogSelector", () => {
