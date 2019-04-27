@@ -1,14 +1,14 @@
 {
-  "name": "my-app",
+  "name": "Doggo-App",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "nock": "^10.0.3",
-    "react": "^16.5.2",
+    "react": "^16.8.6",
     "react-bootstrap": "^0.32.4",
-    "react-dom": "^16.5.2",
-    "react-scripts": "2.0.4"
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,16 +28,16 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/core": "^7.1.0",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
-    "@babel/runtime": "^7.1.0",
-    "@storybook/addon-actions": "^4.0.0-alpha.4",
-    "@storybook/addon-links": "^4.0.0-alpha.4",
-    "@storybook/addons": "^4.0.0-alpha.4",
-    "@storybook/react": "^4.0.0-alpha.4",
+    "@babel/runtime": "^7.4.4",
+    "@storybook/addon-actions": "^4.1.18",
+    "@storybook/addon-links": "^4.1.18",
+    "@storybook/addons": "^4.1.18",
+    "@storybook/react": "^4.1.18",
     "babel-core": "7.0.0-bridge.0",
-    "enzyme": "^3.7.0",
+    "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.6.0"
   }
 }
