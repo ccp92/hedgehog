@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
 import { Form, FormControl, Button } from "react-bootstrap";
 
-export default class SubmitBestDog extends React.Component {
+export default class SubmitBestDog extends Component {
   constructor(props) {
     super(props);
     this.state = { value: undefined };

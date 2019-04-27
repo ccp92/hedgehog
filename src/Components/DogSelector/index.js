@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
 import { Form, Button, FormControl } from "react-bootstrap";
 import "./style.css";
-export default class DogSelector extends React.Component {
+
+export default class DogSelector extends Component {
   constructor(props) {
     super(props);
 

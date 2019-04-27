@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap-theme.css";
 import { PageHeader } from "react-bootstrap";
 
-export default class HelloMessage extends React.Component {
+export default class HelloMessage extends Component {
   renderSubHeading() {
     if (this.props.likeDogs === true) {
       return <h4>The bestest dogs</h4>;

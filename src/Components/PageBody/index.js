@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import "./style.css";
 import DogSelector from "../DogSelector";
 import HelloMessage from "../HelloMessage";
